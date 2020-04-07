@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
-import apartmentRouter from './routes/apartment'
+import apartmentRouter from './routes/apartment.route'
 
 const {
   env: { MONGODB_PASSWORD },
