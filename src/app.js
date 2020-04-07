@@ -2,11 +2,13 @@ import express from 'express'
 
 import apartmentRouter from './routes/apartment'
 
-const app = express()
+const server = express()
 
-// server.use
+server.use(express.json())
 
-const listener = app.listen(8000, function() {
+server.use('/apartments', apartmentRouter)
+
+const listener = server.listen(8000, function() {
   console.log('Listening on port ' + listener.address().port)
 })
 
