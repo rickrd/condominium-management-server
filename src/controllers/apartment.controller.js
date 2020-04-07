@@ -1,19 +1,21 @@
-const getApartments = (req, res) => {
+import Apartment from '../models/apartment.model'
+
+const getApartments = async (req, res) => {
   console.log(req.query)
 
   const {
-    query: { id },
+    query: { _id },
   } = req
 
-  if (!id) {
+  if (!_id) {
+    const apartments = await Apartment.find()
+
     return res.status(200).send({ apartments })
   }
 
-  const parsedId = parseInt(id)
+  const apartments = await Apartment.find({_id})
 
-  const apartment = apartments.find((apartment) => apartment.id === parsedId)
-
-  return res.status(200).send({ apartment })
+  return res.status(200).send({ apartments })
 }
 
 export { getApartments }

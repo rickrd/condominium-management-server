@@ -7,9 +7,7 @@ const {
   env: { MONGODB_PASSWORD },
 } = process
 
-console.log(MONGODB_PASSWORD)
-
-mongoose.connect(`mongodb+srv://admin:${MONGODB_PASSWORD}@condominium-management-heifk.gcp.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(`mongodb+srv://admin:${MONGODB_PASSWORD}@condominium-management-heifk.gcp.mongodb.net/condominium-management?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const database = mongoose.connection;
 database.on('error', console.error.bind(console, 'connection error:'));

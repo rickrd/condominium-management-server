@@ -1,7 +1,9 @@
 import { Schema, model } from 'mongoose'
 
- const apartmentSchema = new mongoose.Schema({
+ const apartmentSchema = new Schema({
   number: String,
 })
 
-export const Apartment = model('Apartment', apartmentSchema)
+const Apartment = model('apartments', apartmentSchema)
+
+export default Apartment
