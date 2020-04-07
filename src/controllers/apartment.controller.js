@@ -18,4 +18,19 @@ const getApartments = async (req, res) => {
   return res.status(200).send({ apartments })
 }
 
-export { getApartments }
+const createApartment = async (req, res) => {
+  const {
+    body: {number},
+  }= req
+
+  if (!number) {
+    return res.status(400).send({apartment, message: "The number is invalid."})
+  }
+
+  const apartment = await Apartment.create({number})
+
+  return res.status(200).send({apartment, message: "Successfully created!"})
+} 
+
+
+export { createApartment, getApartments }
