@@ -9,10 +9,13 @@ provider:
   stage: dev
 
 functions:
-  hello:
-    handler: handler.hello
+  getApartments:
+    handler: handler.getApartments
     events:
       - http:
-          path: hello
+          path: apartments
           method: get
           cors: true
+
+plugins:
+  - serverless-offline
