@@ -1,36 +1,30 @@
 import Apartment from '../models/apartment.model'
 
-const getApartments = async (req, res) => {
-  console.log(req.query)
+const getAllApartments = async (event, context) => {
+  context.callbackWaitsForEmptyEventLoop = false
 
-  const {
-    query: { _id },
-  } = req
-
-  if (!_id) {
-    const apartments = await Apartment.find()
-
-    return res.status(200).send({ apartments })
+  return {
+    statusCode: 200,
+    body: JSON.stringify([
+      {
+        number: 202
+      },
+    ]),
   }
-
-  const apartments = await Apartment.find({_id})
-
-  return res.status(200).send({ apartments })
 }
 
-const createApartment = async (req, res) => {
-  const {
-    body: {number},
-  }= req
+// const createApartment = async (req, res) => {
+//   const {
+//     body: {number},
+//   }= req
 
-  if (!number) {
-    return res.status(400).send({apartment, message: "The number is invalid."})
-  }
+//   if (!number) {
+//     return res.status(400).send({apartment, message: "The number is invalid."})
+//   }
 
-  const apartment = await Apartment.create({number})
+//   const apartment = await Apartment.create({number})
 
-  return res.status(200).send({apartment, message: "Successfully created!"})
-} 
+//   return res.status(200).send({apartment, message: "Successfully created!"})
+// }
 
-
-export { createApartment, getApartments }
+export { getAllApartments }

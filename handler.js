@@ -1,14 +1,11 @@
 'use strict'
 
-const getApartments = async (event) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify([
-      {
-        number: 202,
-      },
-    ]),
-  }
-}
+require('@babel/register')
 
-module.exports = {getApartments}
+require("dotenv").config({ path: ".env" })
+
+const apartmentController = require("./src/controllers/apartment.controller")
+
+const {getAllApartments} = apartmentController
+
+module.exports = {getAllApartments}

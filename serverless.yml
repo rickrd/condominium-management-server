@@ -10,7 +10,7 @@ provider:
 
 functions:
   getApartments:
-    handler: handler.getApartments
+    handler: handler.getAllApartments
     events:
       - http:
           path: apartments
