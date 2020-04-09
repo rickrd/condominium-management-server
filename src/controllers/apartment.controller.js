@@ -1,6 +1,8 @@
-import {useApartments} from '../hooks/apartment.hook'
+import { useApartments } from '../hooks/apartment.hook'
 
 export const getAllApartments = async (event, context) => {
+  // You should set this property to false to request AWS Lambda to freeze the process soon after the callback is called, 
+  // even if there are events in the NodeJS runtime event loop.
   context.callbackWaitsForEmptyEventLoop = false
 
   try {
@@ -19,19 +21,3 @@ export const getAllApartments = async (event, context) => {
     }
   }
 }
-
-// const createApartment = async (req, res) => {
-//   const {
-//     body: {number},
-//   }= req
-
-//   if (!number) {
-//     return res.status(400).send({apartment, message: "The number is invalid."})
-//   }
-
-//   const apartment = await Apartment.create({number})
-
-//   return res.status(200).send({apartment, message: "Successfully created!"})
-// }
-
-// export { getAllApartments }

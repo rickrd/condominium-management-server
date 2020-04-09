@@ -8,6 +8,9 @@ provider:
   runtime: nodejs12.x
   stage: dev
 
+# the functions section, they are linked to the exported functions on "handler.js"
+# the paths all follow the naming convention of a standard REST API.
+# they will be used by the "serverless" framework to trigger the AWS Lambda functions
 functions:
   getApartments:
     handler: handler.getAllApartments
