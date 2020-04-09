@@ -1,9 +1,11 @@
 import { Schema, model } from 'mongoose'
 
- const apartmentSchema = new Schema({
+ const ApartmentSchema = new Schema({
   number: String,
 })
 
-const Apartment = model('apartments', apartmentSchema)
+const Apartment = databaseConnection => {
+  return databaseConnection.model("Apartment", ApartmentSchema)
+}
 
 export default Apartment

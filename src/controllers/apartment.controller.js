@@ -1,15 +1,22 @@
-import Apartment from '../models/apartment.model'
+import {useApartments} from '../hooks/apartment.hook'
 
-const getAllApartments = async (event, context) => {
+export const getAllApartments = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify([
-      {
-        number: 202
-      },
-    ]),
+  try {
+    const { apartmentModel } = await useApartments()
+    const apartments = await apartmentModel.find()
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(apartments),
+    }
+  } catch (err) {
+    return {
+      statusCode: err.statusCode || 500,
+      headers: { 'Content-Type': 'text/plain' },
+      body: 'Could not fetch the apartments.',
+    }
   }
 }
 
@@ -27,4 +34,4 @@ const getAllApartments = async (event, context) => {
 //   return res.status(200).send({apartment, message: "Successfully created!"})
 // }
 
-export { getAllApartments }
+// export { getAllApartments }
