@@ -5,12 +5,10 @@ require('dotenv').config({ path: '.env' })
 const { ApolloServer } = require('apollo-server-lambda')
 const lambdaPlayground = require('graphql-playground-middleware-lambda').default
 
-const resolvers = require('./src/resolvers/apartment.resolver').resolvers
-const types = require('./src/types/types').types
+const schema = require('./src/types/types').schema
 
 const server = new ApolloServer({
-  typeDefs: types,
-  resolvers,
+  schema,
   context: ({ event, context }) => ({
     headers: event.headers,
     functionName: context.functionName,
