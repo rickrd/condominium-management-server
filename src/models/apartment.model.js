@@ -1,7 +1,13 @@
 import { Schema, model } from 'mongoose'
 
+const Resident = new Schema({
+  name: String
+})
+
 const ApartmentSchema = new Schema({
-  number: String,
+  number: Number,
+  block: String,
+  residents: [Resident]
 })
 
 const Apartment = (databaseConnection) => {

@@ -12,5 +12,11 @@ export async function useApartments() {
     return apartments
   }
 
-  return { apartmentModel, getAllApartments }
+  async function createApartment(apartment){
+    const createdApartment = await apartmentModel.create(apartment)
+    
+    return createdApartment
+  }
+
+  return { apartmentModel, getAllApartments, createApartment }
 }

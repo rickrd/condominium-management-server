@@ -4,6 +4,8 @@ export const apartmentTypeDefs = `
   type Apartment {
     _id: String
     number: Int
+    block: String
+    residents: [Resident]
   }
 
   type CreateApartmentPayload {
@@ -12,7 +14,7 @@ export const apartmentTypeDefs = `
 
   input CreateApartmentInput {
     number: Int!
-    block: Int!
+    block: String!
     residents: [ResidentInput]
   }
 `

@@ -5,9 +5,18 @@ export const resolvers = {
     async apartments() {
       const {getAllApartments} = await useApartments()
 
-      const apartments = getAllApartments()
+      const apartments = await getAllApartments()
 
       return apartments
     },
   },
+
+  Mutation: {
+    async createApartment(parent, {input}) {
+      const {createApartment} = await useApartments()
+
+      const apartment = await createApartment(input)
+      return apartment
+    }
+  }
 }
