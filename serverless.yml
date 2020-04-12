@@ -12,11 +12,23 @@ provider:
 # the paths all follow the naming convention of a standard REST API.
 # they will be used by the "serverless" framework to trigger the AWS Lambda functions
 functions:
-  getApartments:
-    handler: handler.getAllApartments
+  graphql:
+    handler: graphql.graphqlHandler
     events:
       - http:
-          path: apartments
+          path: graphql
+          method: post
+          cors: true
+      - http:
+          path: graphql
+          method: get
+          cors: true
+
+  playground:
+    handler: graphql.playgroundHandler
+    events:
+      - http:
+          path: playground
           method: get
           cors: true
 

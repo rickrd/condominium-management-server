@@ -6,5 +6,11 @@ export async function useApartments() {
   const databaseConnection = await getDatabaseConnection()
   const apartmentModel = Apartment(databaseConnection)
 
-  return { apartmentModel }
+  async function getAllApartments() {
+    const apartments = await apartmentModel.find()
+
+    return apartments
+  }
+
+  return { apartmentModel, getAllApartments }
 }
