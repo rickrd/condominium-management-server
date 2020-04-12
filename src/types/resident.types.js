@@ -1,8 +1,10 @@
-import gql from 'graphql-tag'
-
-export const residentTypeDefs = gql`
+export const residentTypeDefs = `
   type Resident {
     _id: String
+    name: String
+  }
+
+  input ResidentInput {
     name: String
   }
 `
