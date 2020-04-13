@@ -3,7 +3,7 @@ import { makeExecutableSchema } from 'apollo-server'
 
 import { apartmentTypeDefs } from '../types/apartment.types'
 import { residentTypeDefs } from '../types/resident.types'
-import {resolvers as apartmentResolvers} from '../resolvers/apartment.resolver'
+import { resolvers as apartmentResolvers } from '../resolvers/apartment.resolver'
 
 const queries = `
   type Query {
@@ -17,10 +17,11 @@ const mutations = `
   type Mutation {
     createApartment(input: CreateApartmentInput!): CreateApartmentPayload
     updateApartment(input: UpdateApartmentInput!): UpdateApartmentPayload
+    deleteApartment(input: DeleteApartmentInput!): DeleteApartmentPayload
   }
 `
 
 export const schema = makeExecutableSchema({
   typeDefs: [queries, mutations, apartmentTypeDefs, residentTypeDefs],
-  resolvers: apartmentResolvers
+  resolvers: apartmentResolvers,
 })

@@ -30,5 +30,11 @@ export async function useApartments() {
     return apartments
   }
 
-  return { apartmentModel, getAllApartments, createApartment, updateApartment, getApartmentById }
+  async function deleteApartment(apartment) {
+    await apartmentModel.remove({ _id: apartment._id })
+    
+    return apartment
+  }
+
+  return { apartmentModel, getAllApartments, createApartment, updateApartment, getApartmentById, deleteApartment }
 }

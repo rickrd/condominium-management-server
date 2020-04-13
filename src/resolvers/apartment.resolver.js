@@ -35,5 +35,13 @@ export const resolvers = {
 
       return { apartment }
     },
+
+    async deleteApartment(parent, { input }) {
+      const { deleteApartment } = await useApartments()
+
+      const apartment = await deleteApartment(input)
+
+      return { apartment }
+    },
   },
 }

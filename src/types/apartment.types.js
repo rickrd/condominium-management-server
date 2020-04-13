@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 export const apartmentTypeDefs = `
   type Apartment {
-    _id: String
+    _id: String!
     number: String
     block: String
     residents: [Resident]
@@ -13,6 +13,10 @@ export const apartmentTypeDefs = `
   }
 
   type UpdateApartmentPayload {
+    apartment: Apartment
+  }
+
+  type DeleteApartmentPayload {
     apartment: Apartment
   }
 
@@ -27,6 +31,10 @@ export const apartmentTypeDefs = `
     number: String!
     block: String!
     residents: [ResidentInput]!
+  }
+
+  input DeleteApartmentInput {
+    _id: String!
   }
 
   input GetApartmentInput {

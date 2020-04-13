@@ -1,6 +1,6 @@
 export const residentTypeDefs = `
   type Resident {
-    _id: String
+    _id: String!
     name: String!
     birthdate: String
     phone: String
@@ -8,6 +8,7 @@ export const residentTypeDefs = `
   }
 
   input ResidentInput {
+    _id: String
     name: String!
     birthdate: String
     phone: String
