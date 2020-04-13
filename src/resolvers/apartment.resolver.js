@@ -16,7 +16,7 @@ export const resolvers = {
       const {createApartment} = await useApartments()
 
       const apartment = await createApartment(input)
-      return apartment
+      return {apartment}
     }
   }
 }
