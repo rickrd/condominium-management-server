@@ -1,10 +1,16 @@
 export const residentTypeDefs = `
   type Resident {
     _id: String
-    name: String
+    name: String!
+    birtdate: String
+    phone: String
+    email: String
   }
 
   input ResidentInput {
-    name: String
+    name: String!
+    birthdate: String
+    phone: String
+    email: String
   }
 `
