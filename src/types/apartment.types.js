@@ -12,9 +12,24 @@ export const apartmentTypeDefs = `
     apartment: Apartment
   }
 
+  type UpdateApartmentPayload {
+    apartment: Apartment
+  }
+
   input CreateApartmentInput {
     number: String!
     block: String!
     residents: [ResidentInput]!
+  }
+
+  input UpdateApartmentInput {
+    _id: String!
+    number: String!
+    block: String!
+    residents: [ResidentInput]!
+  }
+
+  input GetApartmentInput {
+    _id: String!
   }
 `

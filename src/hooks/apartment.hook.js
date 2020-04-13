@@ -12,11 +12,23 @@ export async function useApartments() {
     return apartments
   }
 
-  async function createApartment(apartment){
+  async function createApartment(apartment) {
     const createdApartment = await apartmentModel.create(apartment)
-    
+
     return createdApartment
   }
 
-  return { apartmentModel, getAllApartments, createApartment }
+  async function updateApartment(apartment) {
+    await apartmentModel.update({ _id: apartment._id }, { $set: apartment })
+    
+    return apartment
+  }
+
+  async function getApartmentById({_id}) {
+    const apartments = await apartmentModel.find({ _id})
+
+    return apartments
+  }
+
+  return { apartmentModel, getAllApartments, createApartment, updateApartment, getApartmentById }
 }

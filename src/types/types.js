@@ -9,12 +9,14 @@ const queries = `
   type Query {
     residents: [Resident]
     apartments: [Apartment]
+    apartment(input:GetApartmentInput!): [Apartment]
   }
 `
 
 const mutations = `
   type Mutation {
     createApartment(input: CreateApartmentInput!): CreateApartmentPayload
+    updateApartment(input: UpdateApartmentInput!): UpdateApartmentPayload
   }
 `
 
