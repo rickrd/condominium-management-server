@@ -1,7 +1,10 @@
 import { Schema, model } from 'mongoose'
 
 const Resident = new Schema({
-  name: String
+  name: String,
+  birthdate: String,
+  phone: String,
+  email: String
 })
 
 const ApartmentSchema = new Schema({
